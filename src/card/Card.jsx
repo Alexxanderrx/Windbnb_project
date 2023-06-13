@@ -1,26 +1,24 @@
 import React, { useState } from "react";
-// import "./Card.css"
+import "./Card.css"
 function Card(carta) {
-    const [superH,setSuperH] = useState(true);
-    
+
+    const estado = carta.superH;
+
     return (
-        <div className="card border-0" style={{ width: "25rem" }}>
-            <div style={{ height: "18rem" }}>
+        <div className="card_00">
+            <div className="card_img">
                 <img src={carta.photo} className="card-img-top rounded-4 " alt="imagen" style={{ height: "100%" }}></img>
             </div>
-            <div className="d-flex justify-content-between" >
-                <h5>
-                    {superH && (<span className="badge text-bg-secondary rounded-4">SUPER HOST</span>)}
-                    {/* <span className="badge text-bg-secondary rounded-4">SUPER HOST</span> */}
-                </h5>
-                <span className="text-start">
+            <div className="card_01" >
+                {estado && (<span className="card_superH">SUPER HOST</span>)}
+                <span className="card_beds">
                     {carta.type}, {carta.beds} beds
                 </span>
-                <div className="">
-                    <span className="material-symbols-outlined align-middle" style={{ color: "orange" }}>
+                <div className="card_stars">
+                    <span className="material-symbols-outlined align-middle" style={{ color: "rgb(235, 87, 87)" }}>
                         star
                     </span>
-                    <span className="align-middle">{carta.rating}</span>
+                    <span className="card_rating">{carta.rating}</span>
                 </div>
             </div>
             <div>

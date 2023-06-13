@@ -21,21 +21,46 @@ function App() {
 
   // Este Hook te va a ejecutar la función getData cada vez que la página se renderice.
   useEffect(() => {
-     getData();
+    getData();
   }, []);
 
   // Puedes ver la variable data en consola.
-  console.log(data);
+  // console.log(data);
   return (
-    <>
-    {data.map((el, i) => {
-      return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating}/>
-      })}
-    {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
-      {/* {data.map((el, i) => {
-        return <h1 key={i}>{el.city}</h1>
-      })} */}
-    </>
+    <body>
+      <div id="fondo">
+        <section className="menu_00">
+          <div id="logo_img">
+            <img src="./logo.png" alt="imagen_logo"></img>
+          </div>
+          <div id="search_box">
+            <div className="search_guest_00">
+              Helsinki,Finland
+            </div>
+            <div className="search_guest_01">
+              Add guests
+            </div>
+            <div id="search_icon">
+              <span class="material-symbols-outlined">
+                search
+              </span>
+            </div>
+          </div>
+
+        </section>
+        <section className="menu_01">
+          <h2>Stays in Finland</h2>
+          <p>12+ stays</p>
+        </section>
+        <section id="cards">
+          {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
+          {data.map((el, i) => {
+            return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating} />
+          })}
+        </section>
+      </div>
+
+    </body>
   );
 }
 

@@ -2,4 +2,92 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
+}
+#fondo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aquamarine; */
+    border: 1px solid black;
+}
+.menu_00{
+    width: 90%;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    /* background-color:rgb(87, 87, 39); */
+}
+.menu_01{
+    width: 90%;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    /* background-color:yellow; */
+}
+#logo_img{
+    /* border: 1px solid black; */
+    /* background-color:yellow; */
+    height: 60%;
+}
+
+#search_box{
+    width: 330px;
+    height: 50%;
+    /* border: 1px solid black; */
+    /* background-color: rgb(58, 255, 255); */
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.search_guest_00{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    width: 45%;
+    border-right: 1px solid rgb(242, 242, 242);
+    height: 100%;
+}
+.search_guest_01{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    width: 35%;
+    border-right: 1px solid rgb(242, 242, 242);
+    height: 100%;
+}
+#search_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(235, 87, 87);
+    /* border: 1px solid black; */
+    width: 20%;
+    height: 100%;
+}
+#cards{
+    /* background-color: aqua; */
+    width: 90%;
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
 }
