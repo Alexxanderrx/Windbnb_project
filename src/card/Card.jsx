@@ -3,7 +3,7 @@ import "./Card.css"
 function Card(carta) {
 
     const estado = carta.superH;
-
+    const estadoBed = carta.beds;
     return (
         <div className="card_00">
             <div className="card_img">
@@ -11,9 +11,14 @@ function Card(carta) {
             </div>
             <div className="card_01" >
                 {estado && (<span className="card_superH">SUPER HOST</span>)}
-                <span className="card_beds">
+                {/* <span className="card_beds">
                     {carta.type}, {carta.beds} beds
+                </span> */}
+
+                <span className="card_beds">
+                    {carta.type} {estadoBed == null ? "" : `. ${carta.beds} beds`} 
                 </span>
+
                 <div className="card_stars">
                     <span className="material-symbols-outlined align-middle" style={{ color: "rgb(235, 87, 87)" }}>
                         star
