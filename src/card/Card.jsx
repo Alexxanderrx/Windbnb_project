@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 // import "./Card.css"
 function Card(carta) {
-    // const [suHost, setSuHost] = useState(true) ? ;
-    const suHost = `${carta.superH}`;
-    console.log(suHost);
-    const superHost = suHost ? '<span className="badge text-bg-secondary rounded-4">SUPER HOST</span>' : "";
-
+    const [superH,setSuperH] = useState(true);
+    
     return (
         <div className="card border-0" style={{ width: "25rem" }}>
             <div style={{ height: "18rem" }}>
@@ -13,7 +10,7 @@ function Card(carta) {
             </div>
             <div className="d-flex justify-content-between" >
                 <h5>
-                    {superHost}
+                    {superH && (<span className="badge text-bg-secondary rounded-4">SUPER HOST</span>)}
                     {/* <span className="badge text-bg-secondary rounded-4">SUPER HOST</span> */}
                 </h5>
                 <span className="text-start">
