@@ -7,12 +7,12 @@ body{
     flex-direction: column; */
 }
 #form_fondo{
-    /* height: 100em; */
+    height: 200em;
     display: flex;
     flex-direction: column;
     width: 100%;
     /* position: absolute; */
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 #fondo{
     /* z-index: ; */
@@ -29,8 +29,8 @@ body{
 }
 
 .menu_00{
-    /* position: sticky; */
-    /* top: 100px; */
+    position: sticky;
+    top: 0px;
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
@@ -225,8 +225,8 @@ body{
 
 #glass{
     position: relative;
-    top: 20%;
-    left: -20%;
+    /* top: 20%; */
+    right: 5%;
     color: white;
     user-select: none;
 }
@@ -235,14 +235,19 @@ body{
     background-color: rgb(235, 87, 87);
     color: white;
     border-radius: 13px;
-    font-size: 12px;
+    font-size: 15px;
     width: 30%;
     height: 80%;
-    padding-left: 10%;
-    padding-right: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    /* padding-left: 5%; */
+    /* padding-right: 3%; */
 }
 #btn_orange:hover{
     background-color:rgb(255, 212, 212);
+    transition: 500ms;
 }
 #locInv{
     /* background-color:rgb(106, 255, 118); */
