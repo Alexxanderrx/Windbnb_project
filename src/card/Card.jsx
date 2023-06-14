@@ -11,9 +11,6 @@ function Card(carta) {
             </div>
             <div className="card_01" >
                 {estado && (<span className="card_superH">SUPER HOST</span>)}
-                {/* <span className="card_beds">
-                    {carta.type}, {carta.beds} beds
-                </span> */}
 
                 <span className="card_beds">
                     {carta.type} {estadoBed == null ? "" : `. ${carta.beds} beds`} 

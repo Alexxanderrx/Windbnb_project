@@ -1,8 +1,14 @@
 .card_00{
     width: 27rem;
-    /* border: 1px solid black; */
+    border-radius: 19px;
+    border: 3px solid transparent;
     margin-bottom: 20px;
 }
+.card_00:hover{
+    /* outline: thick double rgb(56, 136, 255); */
+    border: 3px solid rgb(56, 136, 255);
+}
+
 .card_img{
     height: 18rem;
 }

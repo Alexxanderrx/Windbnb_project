@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./card/Card";
+import Locals from "./locals/Locals";
 
 function App() {
   // La variable data es la que va a almacenar los datos de "stays.json" y setData nos ayudará a guardar esos datos en esa variable. Es necesario que inicialicemos esa variable como un array vacío para evitar errores.
@@ -26,32 +27,108 @@ function App() {
 
   // Puedes ver la variable data en consola.
   // console.log(data);
+  const [openMenu, setOpenMenu] = useState(true);
+  const handleClick = () => {
+    setOpenMenu(!openMenu)
+  }
+  const CLASSNAME = `menu_fondo_b ${openMenu ? 'open' : ''}`
+
+
+  const [lista, setLista] = useState(data);
+
+  function buscarLocation(e) {
+    // console.log(e.target.value);
+    let inputValue = e.target.value.toLowerCase();
+    //FILTERED fue cambia de const a let
+    let FILTERED = data.filter((el) => {
+      return el.city.toLowerCase().includes(inputValue);
+    })
+
+    inputValue === "" ? FILTERED = [] : FILTERED;
+
+    console.log(FILTERED);
+    setLista(FILTERED);
+  }
+
   return (
-    <body>
+    <form id="form_fondo">
+      <section className={CLASSNAME}>
+        <div id="menu_fondo_w">
+
+          <div id="span_bar">
+            <span className="span_title">LOCATION</span>
+            <span className="span_title">GUEST</span>
+          </div>
+
+          <div id="menu_bar">
+            <div className="menu_input">
+
+              <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onKeyUp={buscarLocation}></input>
+            </div>
+            <div className="menu_input">
+
+              <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" ></input>
+            </div>
+            <div id="menu_search">
+              <span className="material-symbols-outlined" id="glass">
+                search
+              </span>
+              <button id="btn_orange" type="button" onClick={handleClick}>Search</button>
+            </div>
+          </div>
+
+          <div id="locInv">
+            <div id="locales_00">
+              {/* {data.map((lo, j) => {
+                  return <Locals key={j} ciudad={lo.city} pais={lo.country}/>
+                })} */}
+
+              {
+                lista.length === 0 ? <p>No locations found.</p> :
+
+                  lista.map((lo, j) => {
+                    return <Locals key={j} ciudad={lo.city} pais={lo.country} rating={lo.rating} />
+                  })
+
+              }
+
+            </div>
+
+            <div id="invitados">
+              <span className="inv">GUEST</span>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
       <div id="fondo">
         <section className="menu_00">
           <div id="logo_img">
-            <img src="./logo.png" alt="imagen_logo"></img>
+            <img src="./logo.png" alt="imagen_logo" style={{ width: "100%" }}></img>
           </div>
-          <div id="search_box">
-            <div className="search_guest_00">
-              Helsinki,Finland
+
+          <button id="search_box" type="button" onClick={handleClick}>
+            <div className="search_guest_01">
+              Add location
             </div>
             <div className="search_guest_01">
               Add guests
             </div>
             <div id="search_icon">
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 search
               </span>
             </div>
-          </div>
+          </button>
 
         </section>
+
         <section className="menu_01">
           <h2>Stays in Finland</h2>
           <p>12+ stays</p>
         </section>
+
         <section id="cards">
           {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
           {data.map((el, i) => {
@@ -60,7 +137,7 @@ function App() {
         </section>
       </div>
 
-    </body>
+    </form>
   );
 }
 

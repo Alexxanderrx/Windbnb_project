@@ -1,0 +1,12 @@
+.locales_01{
+    display: flex;
+    /* border: 1px solid black; */
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 8%;
+}
+
+.loc{
+    padding-left: 2%;
+
+}
