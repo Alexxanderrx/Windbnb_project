@@ -70,10 +70,10 @@ function App() {
               <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" ></input>
             </div>
             <div id="menu_search">
-              <span className="material-symbols-outlined" id="glass">
+              
+              <div id="btn_orange" type="button" onClick={handleClick}><span className="material-symbols-outlined" id="glass">
                 search
-              </span>
-              <button id="btn_orange" type="button" onClick={handleClick}>Search</button>
+              </span>Search</div>
             </div>
           </div>
 
@@ -103,6 +103,7 @@ function App() {
         </div>
       </section>
       <div id="fondo">
+
         <section className="menu_00">
           <div id="logo_img">
             <img src="./logo.png" alt="imagen_logo" style={{ width: "100%" }}></img>
