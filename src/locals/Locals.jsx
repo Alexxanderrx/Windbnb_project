@@ -1,15 +1,15 @@
-import React, { useId } from "react"
+import React from "react"
 import "./Locals.css"
 function Locals(locales) {
-    function printText(event) {
-        let name= event.target.value;
-        return (
-            console.log(name)
-        )
-      }
-      useEffect(()=>{
+    // function printText(event) {
+    //     let name= event.target.value;
+    //     return (
+    //         console.log(name)
+    //     )
+    //   }
+    //   useEffect(()=>{
     
-      },[])
+    //   },[])
     return (
         <div type="button" className="locales_01" onClick={printText} value={"hola"}>
             <span className="material-symbols-outlined">

@@ -32,7 +32,8 @@ function App() {
   const handleClick = () => {
     setOpenMenu(!openMenu)
   }
-  const CLASSNAME = `menu_fondo_b ${openMenu ? 'open' : ''}`
+  const CLASSBLACK = `menu_fondo_b ${openMenu ? 'open' : ''}`
+  const CLASSWHITE = `menu_fondo_w ${openMenu ? 'open_w' : ''}`
 
 
   // const [lista, setLista] = useState(data);
@@ -61,6 +62,30 @@ function App() {
     setInputLoc(write)
   }
 
+  // ----------para abrir los mini menu de los menus ----------
+  const [openMiniLoc, setOpenMiniLoc] = useState(true);
+  const [openMiniGue, setOpenMiniGue] = useState(true);
+  function openCloseLoc() {
+    openMiniGue == false ? setOpenMiniLoc(!openMiniLoc) & setOpenMiniGue(!openMiniGue) : setOpenMiniLoc(!openMiniLoc);
+    openMiniLoc == true ? setOpenMiniLoc(!openMiniLoc) : setOpenMiniLoc(openMiniLoc);
+  }
+  function openCloseGue() {
+    openMiniLoc == false ? setOpenMiniGue(!openMiniGue) & setOpenMiniLoc(!openMiniLoc) : setOpenMiniGue(!openMiniGue);
+    openMiniGue == true ? setOpenMiniGue(!openMiniGue) : setOpenMiniGue(openMiniGue);
+  }
+  function btnSearch(){
+    handleClick();
+    openMiniLoc == false ? setOpenMiniLoc(!openMiniLoc):setOpenMiniLoc(openMiniLoc);
+    openMiniGue == false ? setOpenMiniGue(!openMiniGue): setOpenMiniGue(openMiniGue);
+
+    console.log(inputLoc);
+    console.log(inputGue);
+  }
+
+
+  const CLASSLOC = `locales_00 ${openMiniLoc ? '' : 'hola'}`
+  const CLASSGUEST = `guest_box ${openMiniGue ? '' : 'hola'}`
+  // --------------- ------------
   const [countAdult, setCountAdult] = useState(0)
   const sumaA = (event) => {
     event.preventDefault();
@@ -83,92 +108,100 @@ function App() {
 
   const [inputGue, setinputGue] = useState("")
 
-  const inputGueCambio = event =>
+  const inputGueCambio = event =>{
     setinputGue(event.target.value)
 
   // const btnWriteg = (write) => {
   //   // event.preventDefault();
   //   setinputGue(write)
   // }
-
+  }
   useEffect(() => {
     setinputGue(countAdult + countChild)
     // console.log("ppepe")
   }, [countAdult, countChild])
 
+
+
   return (
     <form id="form_fondo">
-      <section className={CLASSNAME}>
-        <div id="menu_fondo_w">
+      <div className={CLASSWHITE}>
 
-          <div id="span_bar">
-            <span className="span_title">LOCATION</span>
-            <span className="span_title">GUEST</span>
+        <div id="span_bar">
+          <span className="span_title">LOCATION</span>
+          <span className="span_title">GUEST</span>
+        </div>
+
+        <div id="menu_bar">
+          <div className="menu_input">
+            {/* input location */}
+
+            {/* <quitado el onKeyup={buscarLocation}/> */}
+            <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onChange={inputLocCambio} value={inputLoc} onClick={openCloseLoc} autoComplete="off"></input>
+
+            {/* <Addlocal onKey={buscarLocation}/> */}
+
           </div>
+          <div className="menu_input">
+            {/* input guest */}
+            <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" onChange={inputGueCambio} value={inputGue} onClick={openCloseGue} autoComplete="off"></input>
+          </div>
+          <div id="menu_search">
 
-          <div id="menu_bar">
-            <div className="menu_input">
-              {/* input location */}
-
-              {/* <quitado el onKeyup={buscarLocation}/> */}
-              <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onChange={inputLocCambio} value={inputLoc}></input>
-
-              {/* <Addlocal onKey={buscarLocation}/> */}
-
-            </div>
-            <div className="menu_input">
-              {/* input guest */}
-              <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" onChange={inputGueCambio} value={inputGue}></input>
-            </div>
-            <div id="menu_search">
-
-              <div id="btn_orange" type="button" onClick={handleClick}><span className="material-symbols-outlined" id="glass">
+            <div id="btn_orange" type="button" onClick={btnSearch}>
+              <span className="material-symbols-outlined" id="glass">
                 search
-              </span>Search</div>
+              </span>
+              Search
             </div>
           </div>
+        </div>
 
-          <div id="locInv">
-            <div id="locales_00">
+        <div id="locInv">
 
-              <div type="button" className="locales_01" onClick={() => btnWrite("Helsinki" + ", " + "Finland")} >
-                <span className="material-symbols-outlined">
-                  location_on
-                </span>
-                <span className="loc">Helsinki</span>,
-                <span className="loc">Finland</span>
-              </div>
-              <div type="button" className="locales_01" onClick={() => btnWrite("Turku" + ", " + "Finland")} >
-                <span className="material-symbols-outlined">
-                  location_on
-                </span>
-                <span className="loc">Turku</span>,
-                <span className="loc">Finland</span>
-              </div>
-              <div type="button" className="locales_01" onClick={() => btnWrite("Oulu" + ", " + "Finland")} >
-                <span className="material-symbols-outlined">
-                  location_on
-                </span>
-                <span className="loc">Oulu</span>,
-                <span className="loc">Finland</span>
-              </div>
-              <div type="button" className="locales_01" onClick={() => btnWrite("Vaasa" + ", " + "Finland")}>
-                <span className="material-symbols-outlined">
-                  location_on
-                </span>
-                <span className="loc">Vaasa</span>,
-                <span className="loc">Finland</span>
-                {/* <span className="loc">{locales.rating}</span>
+          <div className={CLASSLOC}>
+
+            <div type="button" className="locales_01" onClick={() => btnWrite("Helsinki" + ", " + "Finland")} >
+              <span className="material-symbols-outlined">
+                location_on
+              </span>
+              <span className="loc">Helsinki</span>,
+              <span className="loc">Finland</span>
+            </div>
+
+            <div type="button" className="locales_01" onClick={() => btnWrite("Turku" + ", " + "Finland")} >
+              <span className="material-symbols-outlined">
+                location_on
+              </span>
+              <span className="loc">Turku</span>,
+              <span className="loc">Finland</span>
+            </div>
+
+            <div type="button" className="locales_01" onClick={() => btnWrite("Oulu" + ", " + "Finland")} >
+              <span className="material-symbols-outlined">
+                location_on
+              </span>
+              <span className="loc">Oulu</span>,
+              <span className="loc">Finland</span>
+            </div>
+
+            <div type="button" className="locales_01" onClick={() => btnWrite("Vaasa" + ", " + "Finland")}>
+              <span className="material-symbols-outlined">
+                location_on
+              </span>
+              <span className="loc">Vaasa</span>,
+              <span className="loc">Finland</span>
+              {/* <span className="loc">{locales.rating}</span>
                 <span className="material-symbols-outlined align-middle" style={{ color: "rgb(235, 87, 87)", fontSize: "10px" }}>
                   star
                 </span> */}
-              </div>
+            </div>
 
-              {/* {data.map((lo, j) => {
+            {/* {data.map((lo, j) => {
                   return <Locals key={j} ciudad={lo.city} pais={lo.country}/>
                 })} */}
 
-              {/* {
+            {/* {
                 lista.length === 0 ? <p>No locations found.</p> :
 
                   lista.map((lo, j) => {
@@ -177,34 +210,36 @@ function App() {
 
               } */}
 
+          </div>
+
+          <div className={CLASSGUEST}>
+
+            <div className="guest_box_c">
+              <span className="guest_ti">Adults</span>
+              <span className="guest_subti">Ages 13 or above</span>
+              <div className="menmas">
+                <button className="btn_menmas" onClick={restaA}>-</button>
+                <span>{countAdult}</span>
+                <button className="btn_menmas" onClick={sumaA}>+</button>
+              </div>
             </div>
 
-            <div id="guest_box">
-
-              <div className="guest_box_c">
-                <span className="guest_ti">Adults</span>
-                <span className="guest_subti">Ages 13 or above</span>
-                <div className="menmas">
-                  <button className="btn_menmas" onClick={restaA}>-</button>
-                  <span>{countAdult}</span>
-                  <button className="btn_menmas" onClick={sumaA}>+</button>
-                </div>
-              </div>
-
-              <div className="guest_box_c">
-                <span className="guest_ti">Children</span>
-                <span className="guest_subti">Ages 2-12</span>
-                <div className="menmas">
-                  <button className="btn_menmas" onClick={restaC}>-</button>
-                  <span>{countChild}</span>
-                  <button className="btn_menmas" onClick={sumaC}>+</button>
-                </div>
+            <div className="guest_box_c">
+              <span className="guest_ti">Children</span>
+              <span className="guest_subti">Ages 2-12</span>
+              <div className="menmas">
+                <button className="btn_menmas" onClick={restaC}>-</button>
+                <span>{countChild}</span>
+                <button className="btn_menmas" onClick={sumaC}>+</button>
               </div>
             </div>
           </div>
-
         </div>
+
+      </div>
+      <section className={CLASSBLACK} onClick={handleClick}>
       </section>
+      {/* </section> */}
       <div id="fondo">
 
         <section className="menu_00">
