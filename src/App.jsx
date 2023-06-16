@@ -73,10 +73,10 @@ function App() {
     openMiniLoc == false ? setOpenMiniGue(!openMiniGue) & setOpenMiniLoc(!openMiniLoc) : setOpenMiniGue(!openMiniGue);
     openMiniGue == true ? setOpenMiniGue(!openMiniGue) : setOpenMiniGue(openMiniGue);
   }
-  function btnSearch(){
+  function btnSearch() {
     handleClick();
-    openMiniLoc == false ? setOpenMiniLoc(!openMiniLoc):setOpenMiniLoc(openMiniLoc);
-    openMiniGue == false ? setOpenMiniGue(!openMiniGue): setOpenMiniGue(openMiniGue);
+    openMiniLoc == false ? setOpenMiniLoc(!openMiniLoc) : setOpenMiniLoc(openMiniLoc);
+    openMiniGue == false ? setOpenMiniGue(!openMiniGue) : setOpenMiniGue(openMiniGue);
 
     console.log(inputLoc);
     console.log(inputGue);
@@ -108,13 +108,13 @@ function App() {
 
   const [inputGue, setinputGue] = useState("")
 
-  const inputGueCambio = event =>{
+  const inputGueCambio = event => {
     setinputGue(event.target.value)
 
-  // const btnWriteg = (write) => {
-  //   // event.preventDefault();
-  //   setinputGue(write)
-  // }
+    // const btnWriteg = (write) => {
+    //   // event.preventDefault();
+    //   setinputGue(write)
+    // }
   }
   useEffect(() => {
     setinputGue(countAdult + countChild)
@@ -249,10 +249,14 @@ function App() {
 
           <button id="search_box" type="button" onClick={handleClick}>
             <div className="search_guest_01">
-              Add location
+              {
+                inputLoc == "" ? "Add location" : inputLoc
+              }
             </div>
             <div className="search_guest_01">
-              Add guests
+              {
+                inputGue == 0 ? "Add guests" : inputGue
+              }
             </div>
             <div id="search_icon">
               <span className="material-symbols-outlined">
