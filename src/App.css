@@ -39,6 +39,7 @@ body{
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    z-index: 1;
     /* border: 1px solid black; */
     background-color:white;
 }
@@ -131,7 +132,7 @@ body{
     height: 100vh;
     /* background-color: aqua; */
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 2;
 
     /* clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%); */
     /* clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 0% 0%); */
@@ -266,7 +267,7 @@ body{
     overflow: auto;
     /* background-color: blanchedalmond; */
     margin-right: 7%;
-    padding: 3%;
+    /* padding: 3%; */
     display: flex;
     flex-direction: column;
 }
@@ -296,6 +297,7 @@ body{
     /* width: 50%; */
     height: 100%;
     /* background-color: rgb(161, 161, 161); */
+    user-select: none;
 }
 
 .guest_box_c{
@@ -306,6 +308,7 @@ body{
 
 .guest_ti{
     font-weight: 600;
+    
 }
 .menmas{
     /* background-color: aqua; */

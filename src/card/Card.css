@@ -1,19 +1,33 @@
 .card_00{
     width: 27rem;
     border-radius: 19px;
-    border: 3px solid transparent;
+    /* border: 3px solid transparent; */
+    border: none;
     margin-bottom: 20px;
+    user-select: none;
+    overflow: hidden;
+    /* z-index: 1; */
 }
 .card_00:hover{
     /* outline: thick double rgb(56, 136, 255); */
-    border: 3px solid rgb(56, 136, 255);
+    /* border: 3px solid rgb(56, 136, 255); */
+    box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.4); ;
 }
 
 .card_img{
     height: 18rem;
-}
+    overflow: hidden;
+    border-radius: 20px;
+    /* border: 1px solid black; */
 
+}
+.card-img-top:hover{
+    transition: 1000ms;
+    transform: scale(1.2);
+    /* overflow: hidden; */
+}
 .card_01{
+    /* overflow: hidden; */
     display:flex;
     justify-content:space-between;
     /* border: 1px solid black; */

@@ -35,30 +35,66 @@ function App() {
   const CLASSNAME = `menu_fondo_b ${openMenu ? 'open' : ''}`
 
 
-  const [lista, setLista] = useState(data);
+  // const [lista, setLista] = useState(data);
 
-  function buscarLocation(e) {
+  // function buscarLocation(e) {
 
-    let inputValue = e.target.value.toLowerCase();
-    //fitered fue cambiada de const a let
-    let fitered = data.filter((el) => {
-      return el.city.toLowerCase().includes(inputValue);
-    })
+  //   let inputValue = e.target.value.toLowerCase();
+  //   //fitered fue cambiada de const a let
+  //   let fitered = data.filter((el) => {
+  //     return el.city.toLowerCase().includes(inputValue);
+  //   })
 
-    inputValue === "" ? fitered = [] : fitered;
+  //   inputValue === "" ? fitered = [] : fitered;
 
-    console.log(fitered);
-    setLista(fitered);
+  //   console.log(fitered);
+  //   setLista(fitered);
+  // }
+
+  const [inputLoc, setInputLoc] = useState("")
+
+  const inputLocCambio = event =>
+    setInputLoc(event.target.value)
+
+  const btnWrite = (write) => {
+    // event.preventDefault();
+    setInputLoc(write)
   }
 
-  // function handleChange(event) {
-  //   console.log(event.target.value);
+  const [countAdult, setCountAdult] = useState(0)
+  const sumaA = (event) => {
+    event.preventDefault();
+    setCountAdult((countAdult) => countAdult + 1);
+  }
+  const restaA = (event) => {
+    event.preventDefault();
+    countAdult > 0 ? setCountAdult((countAdult) => countAdult - 1) : setCountAdult;
+  }
+
+  const [countChild, setCountChild] = useState(0)
+  const sumaC = (event) => {
+    event.preventDefault();
+    setCountChild((countChild) => countChild + 1);
+  }
+  const restaC = (event) => {
+    event.preventDefault();
+    countChild > 0 ? setCountChild((countChild) => countChild - 1) : setCountChild;
+  }
+
+  const [inputGue, setinputGue] = useState("")
+
+  const inputGueCambio = event =>
+    setinputGue(event.target.value)
+
+  // const btnWriteg = (write) => {
+  //   // event.preventDefault();
+  //   setinputGue(write)
   // }
-  // function Agregar(agre) {
-  //   return (
-  //     agre.target.value
-  //   )
-  // }
+
+  useEffect(() => {
+    setinputGue(countAdult + countChild)
+    // console.log("ppepe")
+  }, [countAdult, countChild])
 
   return (
     <form id="form_fondo">
@@ -74,15 +110,15 @@ function App() {
             <div className="menu_input">
               {/* input location */}
 
-
-              <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onKeyUp={buscarLocation}></input>
+              {/* <quitado el onKeyup={buscarLocation}/> */}
+              <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onChange={inputLocCambio} value={inputLoc}></input>
 
               {/* <Addlocal onKey={buscarLocation}/> */}
 
             </div>
             <div className="menu_input">
               {/* input guest */}
-              <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" ></input>
+              <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" onChange={inputGueCambio} value={inputGue}></input>
             </div>
             <div id="menu_search">
 
@@ -94,30 +130,64 @@ function App() {
 
           <div id="locInv">
             <div id="locales_00">
+
+              <div type="button" className="locales_01" onClick={() => btnWrite("Helsinki" + ", " + "Finland")} >
+                <span className="material-symbols-outlined">
+                  location_on
+                </span>
+                <span className="loc">Helsinki</span>,
+                <span className="loc">Finland</span>
+              </div>
+              <div type="button" className="locales_01" onClick={() => btnWrite("Turku" + ", " + "Finland")} >
+                <span className="material-symbols-outlined">
+                  location_on
+                </span>
+                <span className="loc">Turku</span>,
+                <span className="loc">Finland</span>
+              </div>
+              <div type="button" className="locales_01" onClick={() => btnWrite("Oulu" + ", " + "Finland")} >
+                <span className="material-symbols-outlined">
+                  location_on
+                </span>
+                <span className="loc">Oulu</span>,
+                <span className="loc">Finland</span>
+              </div>
+              <div type="button" className="locales_01" onClick={() => btnWrite("Vaasa" + ", " + "Finland")}>
+                <span className="material-symbols-outlined">
+                  location_on
+                </span>
+                <span className="loc">Vaasa</span>,
+                <span className="loc">Finland</span>
+                {/* <span className="loc">{locales.rating}</span>
+                <span className="material-symbols-outlined align-middle" style={{ color: "rgb(235, 87, 87)", fontSize: "10px" }}>
+                  star
+                </span> */}
+              </div>
+
               {/* {data.map((lo, j) => {
                   return <Locals key={j} ciudad={lo.city} pais={lo.country}/>
                 })} */}
 
-              {
+              {/* {
                 lista.length === 0 ? <p>No locations found.</p> :
 
                   lista.map((lo, j) => {
                     return <Locals key={j} ciudad={lo.city} pais={lo.country} rating={lo.rating} />
                   })
 
-              }
+              } */}
 
             </div>
 
             <div id="guest_box">
-              
+
               <div className="guest_box_c">
                 <span className="guest_ti">Adults</span>
                 <span className="guest_subti">Ages 13 or above</span>
                 <div className="menmas">
-                  <button className="btn_menmas">-</button>
-                  <span>0</span>
-                  <button className="btn_menmas">+</button>
+                  <button className="btn_menmas" onClick={restaA}>-</button>
+                  <span>{countAdult}</span>
+                  <button className="btn_menmas" onClick={sumaA}>+</button>
                 </div>
               </div>
 
@@ -125,9 +195,9 @@ function App() {
                 <span className="guest_ti">Children</span>
                 <span className="guest_subti">Ages 2-12</span>
                 <div className="menmas">
-                  <button className="btn_menmas">-</button>
-                  <span>0</span>
-                  <button className="btn_menmas">+</button>
+                  <button className="btn_menmas" onClick={restaC}>-</button>
+                  <span>{countChild}</span>
+                  <button className="btn_menmas" onClick={sumaC}>+</button>
                 </div>
               </div>
             </div>
