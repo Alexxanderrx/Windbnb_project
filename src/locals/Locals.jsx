@@ -2,7 +2,7 @@ import React from "react"
 import "./Locals.css"
 function Locals(locales) {
     return (
-        <div className="locales_01">
+        <div type="button" className="locales_01">
             <span className="material-symbols-outlined">
                 location_on
             </span>

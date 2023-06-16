@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./card/Card";
 import Locals from "./locals/Locals";
+import Addlocal from "./AddLocal";
 
 function App() {
   // La variable data es la que va a almacenar los datos de "stays.json" y setData nos ayudará a guardar esos datos en esa variable. Es necesario que inicialicemos esa variable como un array vacío para evitar errores.
@@ -37,18 +38,27 @@ function App() {
   const [lista, setLista] = useState(data);
 
   function buscarLocation(e) {
-    // console.log(e.target.value);
+
     let inputValue = e.target.value.toLowerCase();
-    //FILTERED fue cambia de const a let
-    let FILTERED = data.filter((el) => {
+    //fitered fue cambiada de const a let
+    let fitered = data.filter((el) => {
       return el.city.toLowerCase().includes(inputValue);
     })
 
-    inputValue === "" ? FILTERED = [] : FILTERED;
+    inputValue === "" ? fitered = [] : fitered;
 
-    console.log(FILTERED);
-    setLista(FILTERED);
+    console.log(fitered);
+    setLista(fitered);
   }
+
+  // function handleChange(event) {
+  //   console.log(event.target.value);
+  // }
+  // function Agregar(agre) {
+  //   return (
+  //     agre.target.value
+  //   )
+  // }
 
   return (
     <form id="form_fondo">
@@ -62,15 +72,20 @@ function App() {
 
           <div id="menu_bar">
             <div className="menu_input">
+              {/* input location */}
+
 
               <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onKeyUp={buscarLocation}></input>
+
+              {/* <Addlocal onKey={buscarLocation}/> */}
+
             </div>
             <div className="menu_input">
-
+              {/* input guest */}
               <input type="text" id="guest" className="input_m" name="location" placeholder="Add guest" ></input>
             </div>
             <div id="menu_search">
-              
+
               <div id="btn_orange" type="button" onClick={handleClick}><span className="material-symbols-outlined" id="glass">
                 search
               </span>Search</div>
@@ -94,9 +109,27 @@ function App() {
 
             </div>
 
-            <div id="invitados">
-              <span className="inv">GUEST</span>
+            <div id="guest_box">
+              
+              <div className="guest_box_c">
+                <span className="guest_ti">Adults</span>
+                <span className="guest_subti">Ages 13 or above</span>
+                <div className="menmas">
+                  <button className="btn_menmas">-</button>
+                  <span>0</span>
+                  <button className="btn_menmas">+</button>
+                </div>
+              </div>
 
+              <div className="guest_box_c">
+                <span className="guest_ti">Children</span>
+                <span className="guest_subti">Ages 2-12</span>
+                <div className="menmas">
+                  <button className="btn_menmas">-</button>
+                  <span>0</span>
+                  <button className="btn_menmas">+</button>
+                </div>
+              </div>
             </div>
           </div>
 
