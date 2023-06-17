@@ -42,13 +42,13 @@ function App() {
 
   // function buscarLocation(e) {
 
-  //   let inputValue = e.target.value.toLowerCase();
+  //   let inputValueL = e.target.value.toLowerCase();
   //   //fitered fue cambiada de const a let
   //   let fitered = data.filter((el) => {
-  //     return el.city.toLowerCase().includes(inputValue);
+  //     return el.city.toLowerCase().includes(inputValueL);
   //   })
 
-  //   inputValue === "" ? fitered = [] : fitered;
+  //   inputValueL === "" ? fitered = [] : fitered;
 
   //   console.log(fitered);
   //   setLista(fitered);
@@ -90,19 +90,26 @@ function App() {
   }
   // console.log(inputLoc);
   const [lista, setLista] = useState([]);
-  // et inputValue = inputLoc.toLowerCase();
+  // et inputValueL = inputLoc.toLowerCase();
   function buscarLocation() {
  
-    let inputValue = inputLoc.toLowerCase();
+    let inputValueL = inputLoc.toLowerCase();
+    let inputValueLG = inputGue;
+
     //fitered fue cambiada de const a let
     let filtered = data.filter((el) => {
-      return (el.city.toLowerCase()+", "+el.country.toLowerCase()).includes(inputValue);
+      return (el.city.toLowerCase()+", "+el.country.toLowerCase()).includes(inputValueL);
     })
-    console.log(inputValue);
-    inputValue == null ? filtered = data: filtered ;
-    // console.log(inputValue);
-    // console.log(typeof(inputValue));
-    setLista(filtered);
+
+    let superFiltered = filtered.filter((el) => {
+      return (el.maxGuests >= inputValueLG);
+      // el.maxGuests.includes(inputValueLG)
+    })
+
+    // console.log(inputValueL);
+    // inputValueL == null ? filtered = data: filtered ;
+    inputValueL == null ? superFiltered = data: superFiltered ;
+    setLista(superFiltered);
   }
   // console.log(lista);
 
