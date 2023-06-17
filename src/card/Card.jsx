@@ -4,6 +4,7 @@ function Card(carta) {
 
     const estado = carta.superH;
     const estadoBed = carta.beds;
+    let maxGuests= carta.maxGuests;
     return (
         <div className="card_00">
             <div className="card_img">

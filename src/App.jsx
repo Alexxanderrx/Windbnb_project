@@ -22,10 +22,12 @@ function App() {
   };
 
   // Este Hook te va a ejecutar la función getData cada vez que la página se renderice.
+  // useEffect(() => {
+  //   getData();
+  // }, []);
   useEffect(() => {
     getData();
   }, []);
-
   // Puedes ver la variable data en consola.
   // console.log(data);
   const [openMenu, setOpenMenu] = useState(true);
@@ -52,13 +54,16 @@ function App() {
   //   setLista(fitered);
   // }
 
-  const [inputLoc, setInputLoc] = useState("")
 
+
+  const [inputLoc, setInputLoc] = useState("")
+  // console.log(inputLoc);
   const inputLocCambio = event =>
     setInputLoc(event.target.value)
 
   const btnWrite = (write) => {
     // event.preventDefault();
+    // console.log(inputLoc);
     setInputLoc(write)
   }
 
@@ -78,10 +83,28 @@ function App() {
     openMiniLoc == false ? setOpenMiniLoc(!openMiniLoc) : setOpenMiniLoc(openMiniLoc);
     openMiniGue == false ? setOpenMiniGue(!openMiniGue) : setOpenMiniGue(openMiniGue);
 
-    console.log(inputLoc);
-    console.log(inputGue);
-  }
+    buscarLocation();
 
+    // console.log(inputLoc);
+    // console.log(inputGue);
+  }
+  // console.log(inputLoc);
+  const [lista, setLista] = useState([]);
+  // et inputValue = inputLoc.toLowerCase();
+  function buscarLocation() {
+ 
+    let inputValue = inputLoc.toLowerCase();
+    //fitered fue cambiada de const a let
+    let filtered = data.filter((el) => {
+      return (el.city.toLowerCase()+", "+el.country.toLowerCase()).includes(inputValue);
+    })
+    console.log(inputValue);
+    inputValue == null ? filtered = data: filtered ;
+    // console.log(inputValue);
+    // console.log(typeof(inputValue));
+    setLista(filtered);
+  }
+  // console.log(lista);
 
   const CLASSLOC = `locales_00 ${openMiniLoc ? '' : 'hola'}`
   const CLASSGUEST = `guest_box ${openMiniGue ? '' : 'hola'}`
@@ -274,8 +297,8 @@ function App() {
 
         <section id="cards">
           {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
-          {data.map((el, i) => {
-            return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating} />
+          {(lista == "" ? data: lista).map((el, i) => {
+            return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating} maxGuests={el.maxGuests} />
           })}
         </section>
       </div>
