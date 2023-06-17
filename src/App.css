@@ -339,6 +339,7 @@ body {
 .guest_box_c {
     display: flex;
     flex-direction: column;
+    
     /* gap: 5px; */
 }
 
@@ -403,7 +404,8 @@ body {
 
     #btn_orange {
         position: absolute;
-        top: 520px;
+        /* top: 520px; */
+        top: 80%;
         left: 120px;
         border-radius: 13px;
         font-size: 15px;
@@ -419,6 +421,7 @@ body {
         flex-direction: column;
         /* background-color: aqua; */
         height: 50px;
+        gap:  150%;
     }
 
     
@@ -427,7 +430,7 @@ body {
         /* border: 1px solid black; */
         position: relative;
         top: 120%;
-        margin-bottom: 22%;
+        /* margin-bottom: 22%; */
         left: 5%;
         /* background-color: rgb(60, 108, 92); */
         height: 20px;
@@ -455,12 +458,19 @@ body {
         position: relative;
         /* top: -75px; */
         flex-direction: column;
-        height: 0px;
+        height: 70%;
+        flex-wrap: wrap;
+        /* overflow: auto; */
         width: 100%;
         /* background-color: aqua; */
     }
     .hola{
         height: 70%;
+        width: 80;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 10%;
+        /* background-color: aqua; */
     }
     .menu_fondo_w {
         height: 600px;
