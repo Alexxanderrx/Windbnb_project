@@ -8,7 +8,7 @@ function Card(carta) {
     return (
         <div className="card_00">
             <div className="card_img">
-                <img src={carta.photo} className="card-img-top" alt="imagen" style={{ height: "100%" }}></img>
+                <img src={carta.photo} className="card-img-top" alt="imagen" ></img>
             </div>
             <div className="card_01" >
                 {estado && (<span className="card_superH">SUPER HOST</span>)}

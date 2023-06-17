@@ -21,6 +21,10 @@
     /* border: 1px solid black; */
 
 }
+
+.card_00 > .card_img > img{
+    height: 100% 
+}
 .card-img-top:hover{
     transition: 1000ms;
     transform: scale(1.2);
@@ -68,4 +72,32 @@
 
 .card_title{
     color: rgb(51, 51, 51);
+}
+
+@media (max-width: 1100px) {
+    
+    .card_00 > .card_img {
+        /* background-color: aqua; */
+        height: 250px;
+    }
+    .card_00 > .card_img > img {
+        height: 100%;
+    }
+    .card_beds{
+        font-size: 13px;
+    }
+    .card_rating{
+        font-size: 13px;
+    }
+    .fw-bold{
+        font-size: 13px;
+    }
+    .card_superH{
+        border-radius: 20px;
+        padding: 0px;
+        font-size: 10px;
+        font-weight:700;
+        justify-content: center;
+        width: 90px;
+    }
 }

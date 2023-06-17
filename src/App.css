@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
+body {
     font-family: 'Montserrat', sans-serif;
     /* display: flex;
     justify-content: center;
     flex-direction: column; */
 }
-#form_fondo{
+
+#form_fondo {
     height: 200em;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,8 @@ body{
     /* position: absolute; */
     /* background-color: aqua; */
 }
-#fondo{
+
+#fondo {
     z-index: 0;
     top: 0px;
     position: absolute;
@@ -28,7 +30,7 @@ body{
     /* border: 1px solid black; */
 }
 
-.menu_00{
+.menu_00 {
     position: sticky;
     top: 0px;
     width: 100%;
@@ -42,9 +44,10 @@ body{
     flex-wrap: wrap;
     z-index: 1;
     /* border: 1px solid black; */
-    background-color:white;
+    background-color: white;
 }
-.menu_01{
+
+.menu_01 {
     width: 90%;
     height: 120px;
     justify-content: space-between;
@@ -54,7 +57,8 @@ body{
     /* border: 1px solid black; */
     /* background-color:yellow; */
 }
-#logo_img{
+
+#logo_img {
     display: flex;
     align-items: center;
     width: 9%;
@@ -62,7 +66,7 @@ body{
     height: 60%;
 }
 
-#search_box{
+#search_box {
     width: 24%;
     /* width: 330px; */
     height: 50%;
@@ -75,12 +79,13 @@ body{
     overflow: hidden;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
-#search_box:hover{
+
+#search_box:hover {
     background-color: rgba(222, 222, 222, 0.2);
     transition: 400ms;
 }
 
-.search_guest_00{
+.search_guest_00 {
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
@@ -91,7 +96,8 @@ body{
     border-right: 1px solid rgb(242, 242, 242);
     height: 100%;
 }
-.search_guest_01{
+
+.search_guest_01 {
     /* border: 1px solid black; */
     color: rgba(128, 128, 128, 0.5);
     display: flex;
@@ -105,7 +111,8 @@ body{
     border-right: 1px solid rgb(242, 242, 242);
     height: 100%;
 }
-#search_icon{
+
+#search_icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,10 +120,11 @@ body{
     /* border: 1px solid black; */
     width: 20%;
     height: 100%;
-    user-select:none; 
+    user-select: none;
     /* user-select: inherit; */
 }
-#cards{
+
+#cards {
     /* background-color: aqua; */
     width: 90%;
     height: 100%;
@@ -127,7 +135,7 @@ body{
 
 
 /* -------------Menu------------ */
-.menu_fondo_b{
+.menu_fondo_b {
 
 
     /* top: 0; */
@@ -136,7 +144,7 @@ body{
     position: sticky;
     width: 100%;
     /* height: 750px; */
-    
+
     height: 100vh;
     /* background-color: aqua; */
     background-color: rgba(0, 0, 0, 0.2);
@@ -146,15 +154,15 @@ body{
     transition: 1000ms;
 }
 
-.open{
+.open {
     /* background-color: rgba(0, 0, 0, 0); */
-    clip-path: inset( 100% 0 0 0);
+    clip-path: inset(100% 0 0 0);
     transition: 1000ms;
 }
 
 
 
-.menu_fondo_w{
+.menu_fondo_w {
 
     position: absolute;
     z-index: 3;
@@ -164,18 +172,19 @@ body{
     width: 100%;
     height: 500px;
     display: flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
     clip-path: inset(0 0 0 0);
     transition: 1000ms;
 }
 
-.open_w{
+.open_w {
     clip-path: inset(0 0 100% 0);
     transition: 1000ms;
 }
-#menu_bar{
+
+#menu_bar {
     /* background-color: aqua; */
     display: flex;
     margin-top: 6%;
@@ -186,10 +195,11 @@ body{
     border-radius: 20px;
     /* overflow: hidden; */
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
-    margin:0px;
+    margin: 0px;
 
 }
-.menu_input{
+
+.menu_input {
     width: 33%;
     /* border: 1px solid black; */
     display: flex;
@@ -202,7 +212,7 @@ body{
     height: 100%;
 }
 
-#menu_search{
+#menu_search {
     /* background-color: aqua; */
     display: flex;
     justify-content: center;
@@ -210,7 +220,7 @@ body{
     width: 33%;
 }
 
-.input_m{
+.input_m {
     border: 0;
     border-radius: 21px;
     height: 100%;
@@ -218,26 +228,27 @@ body{
     padding-left: 6%;
     padding-top: 4%;
 }
-#span_bar{
+
+#span_bar {
     /* background-color: aqua; */
     width: 90%;
     height: 100px;
-    display:flex;
+    display: flex;
 }
 
-.span_title{
+.span_title {
     /* z-index: 2; */
     position: relative;
     top: 110%;
     left: 2%;
-    background-color: rgb(60, 108, 92);
+    /* background-color: rgb(60, 108, 92); */
     height: 0px;
     width: 33%;
     font-weight: bolder;
     font-size: 10px;
 }
 
-#glass{
+#glass {
     position: relative;
     /* top: 20%; */
     /* width: 1%; */
@@ -246,7 +257,8 @@ body{
     color: white;
     user-select: none;
 }
-#btn_orange{
+
+#btn_orange {
     border: rgb(235, 87, 87);
     background-color: rgb(235, 87, 87);
     color: white;
@@ -261,11 +273,13 @@ body{
     /* padding-left: 5%; */
     /* padding-right: 3%; */
 }
-#btn_orange:hover{
-    background-color:rgb(255, 212, 212);
+
+#btn_orange:hover {
+    background-color: rgb(255, 212, 212);
     transition: 500ms;
 }
-#locInv{
+
+#locInv {
     /* background-color:rgb(106, 255, 118); */
     width: 60%;
     height: 60%;
@@ -275,7 +289,7 @@ body{
 
 }
 
-.locales_00{
+.locales_00 {
     margin-top: 1%;
     width: 45%;
     height: 100%;
@@ -305,7 +319,7 @@ body{
     border-radius: 4px;
 } */
 
-.guest_box{
+.guest_box {
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -314,23 +328,26 @@ body{
     height: 100%;
     /* background-color: rgb(161, 161, 161); */
     user-select: none;
-    clip-path: inset( 0 0 100% 0);
+    clip-path: inset(0 0 100% 0);
 }
-.hola{
+
+.hola {
     transition: 500ms;
     clip-path: inset(0 0 0 0);
 }
-.guest_box_c{
+
+.guest_box_c {
     display: flex;
     flex-direction: column;
     /* gap: 5px; */
 }
 
-.guest_ti{
+.guest_ti {
     font-weight: 600;
-    
+
 }
-.menmas{
+
+.menmas {
     /* background-color: aqua; */
     display: flex;
     justify-content: space-between;
@@ -338,7 +355,8 @@ body{
     align-items: center;
     margin-top: 10%;
 }
-.btn_menmas{
+
+.btn_menmas {
     height: 100%;
     width: 30%;
     font-size: 15px;
@@ -346,6 +364,105 @@ body{
     background-color: white;
     border: 1px solid rgb(126, 126, 126);
 }
-.btn_menmas:hover{
+
+.btn_menmas:hover {
     background-color: rgb(237, 237, 237);
+}
+
+@media (max-width: 1250px) {
+    #search_box {
+        width: 35%;
+    }
+
+    #cards {
+        width: 85%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu_00{
+        display:flex;
+        /* background-color: aqua; */
+        justify-content: start;
+        align-items: center;
+        height: 25vh;
+    }
+    #search_box {
+        height: 30%;
+        width: 100%;
+    }
+
+    #cards {
+        justify-content: center;
+        width: 85%;
+    }
+    #logo_img {
+        width: 30%;
+        height: 6vh;
+    }
+
+    #btn_orange {
+        position: absolute;
+        top: 520px;
+        left: 120px;
+        border-radius: 13px;
+        font-size: 15px;
+        width: 35%;
+        height: 8%;
+    }
+    #menu_bar {
+        width: 90%;
+        height: 30%;
+        flex-direction: column;
+    }
+    #span_bar{
+        flex-direction: column;
+        /* background-color: aqua; */
+        height: 50px;
+    }
+
+    
+    .span_title {
+        /* z-index: 2; */
+        /* border: 1px solid black; */
+        position: relative;
+        top: 120%;
+        margin-bottom: 22%;
+        left: 5%;
+        /* background-color: rgb(60, 108, 92); */
+        height: 20px;
+        width: 33%;
+        font-weight: bolder;
+        font-size: 10px;
+    }
+    .menu_input{
+        /* background-color: aqua; */
+        width: 100%;
+    }
+    #locInv{
+        /* background-color: aqua; */
+        flex-direction: column;
+        margin-left: 0%;
+        width: 90%;
+    }
+
+    .locales_00 {
+        position: relative;
+        width: 100%;
+        height: 0px;
+    }
+    .guest_box {
+        position: relative;
+        /* top: -75px; */
+        flex-direction: column;
+        height: 0px;
+        width: 100%;
+        /* background-color: aqua; */
+    }
+    .hola{
+        height: 70%;
+    }
+    .menu_fondo_w {
+        height: 600px;
+    }
 }
