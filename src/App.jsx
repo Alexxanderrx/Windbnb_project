@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./card/Card";
-import Locals from "./locals/Locals";
-import Addlocal from "./AddLocal";
+// import Locals from "./locals/Locals";
+// import Addlocal from "./AddLocal";
 
 function App() {
   // La variable data es la que va a almacenar los datos de "stays.json" y setData nos ayudará a guardar esos datos en esa variable. Es necesario que inicialicemos esa variable como un array vacío para evitar errores.
@@ -22,11 +22,9 @@ function App() {
   };
 
   // Este Hook te va a ejecutar la función getData cada vez que la página se renderice.
-  // useEffect(() => {
-  //   getData();
-  // }, []);
   useEffect(() => {
     getData();
+    // buscarLocation();
   }, []);
   // Puedes ver la variable data en consola.
   // console.log(data);
@@ -37,32 +35,12 @@ function App() {
   const CLASSBLACK = `menu_fondo_b ${openMenu ? 'open' : ''}`
   const CLASSWHITE = `menu_fondo_w ${openMenu ? 'open_w' : ''}`
 
-
-  // const [lista, setLista] = useState(data);
-
-  // function buscarLocation(e) {
-
-  //   let inputValueL = e.target.value.toLowerCase();
-  //   //fitered fue cambiada de const a let
-  //   let fitered = data.filter((el) => {
-  //     return el.city.toLowerCase().includes(inputValueL);
-  //   })
-
-  //   inputValueL === "" ? fitered = [] : fitered;
-
-  //   console.log(fitered);
-  //   setLista(fitered);
-  // }
-
-
-
   const [inputLoc, setInputLoc] = useState("")
   // console.log(inputLoc);
   const inputLocCambio = event =>
     setInputLoc(event.target.value)
 
   const btnWrite = (write) => {
-    // event.preventDefault();
     // console.log(inputLoc);
     setInputLoc(write)
   }
@@ -84,31 +62,37 @@ function App() {
     openMiniGue == false ? setOpenMiniGue(!openMiniGue) : setOpenMiniGue(openMiniGue);
 
     buscarLocation();
-
+    //verlas variables
     // console.log(inputLoc);
     // console.log(inputGue);
   }
-  // console.log(inputLoc);
+
   const [lista, setLista] = useState([]);
   // et inputValueL = inputLoc.toLowerCase();
+
   function buscarLocation() {
- 
+    // console.log("buscarLocation funcionando");
     let inputValueL = inputLoc.toLowerCase();
-    let inputValueLG = inputGue;
+    let inputValueG = inputGue;
 
     //fitered fue cambiada de const a let
     let filtered = data.filter((el) => {
-      return (el.city.toLowerCase()+", "+el.country.toLowerCase()).includes(inputValueL);
+      return (el.city.toLowerCase() + ", " + el.country.toLowerCase()).includes(inputValueL);
     })
 
     let superFiltered = filtered.filter((el) => {
-      return (el.maxGuests >= inputValueLG);
-      // el.maxGuests.includes(inputValueLG)
+      return (el.maxGuests >= inputValueG);
+      // el.maxGuests.includes(inputValueG)
     })
 
     // console.log(inputValueL);
-    // inputValueL == null ? filtered = data: filtered ;
-    inputValueL == null ? superFiltered = data: superFiltered ;
+    inputValueL == null ? superFiltered = data : superFiltered;
+    // console.log(superFiltered.length == 0);
+    (superFiltered.length == 0) == true ? superFiltered = [{
+      "rating": 0,
+      "type": "NO RESULTS FOUND",
+      "photo": "https://www.pinwheel.us/assets/img/pages/no-results.png"
+    },] : superFiltered;
     setLista(superFiltered);
   }
   // console.log(lista);
@@ -116,6 +100,7 @@ function App() {
   const CLASSLOC = `locales_00 ${openMiniLoc ? '' : 'hola'}`
   const CLASSGUEST = `guest_box ${openMiniGue ? '' : 'hola'}`
   // --------------- ------------
+  // botones + y -
   const [countAdult, setCountAdult] = useState(0)
   const sumaA = (event) => {
     event.preventDefault();
@@ -140,17 +125,16 @@ function App() {
 
   const inputGueCambio = event => {
     setinputGue(event.target.value)
-
-    // const btnWriteg = (write) => {
-    //   // event.preventDefault();
-    //   setinputGue(write)
-    // }
   }
+
   useEffect(() => {
     setinputGue(countAdult + countChild)
-    // console.log("ppepe")
+    // console.log("funciona pe")
   }, [countAdult, countChild])
 
+  // function showLista() {lista.map((el, i) => {
+  //   return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating} maxGuests={el.maxGuests} />
+  // })}
 
 
   return (
@@ -165,11 +149,7 @@ function App() {
         <div id="menu_bar">
           <div className="menu_input">
             {/* input location */}
-
-            {/* <quitado el onKeyup={buscarLocation}/> */}
             <input type="text" id="location" className="input_m" name="location" placeholder="Add Location" onChange={inputLocCambio} value={inputLoc} onClick={openCloseLoc} autoComplete="off"></input>
-
-            {/* <Addlocal onKey={buscarLocation}/> */}
 
           </div>
           <div className="menu_input">
@@ -221,25 +201,7 @@ function App() {
               </span>
               <span className="loc">Vaasa</span>,
               <span className="loc">Finland</span>
-              {/* <span className="loc">{locales.rating}</span>
-                <span className="material-symbols-outlined align-middle" style={{ color: "rgb(235, 87, 87)", fontSize: "10px" }}>
-                  star
-                </span> */}
             </div>
-
-            {/* {data.map((lo, j) => {
-                  return <Locals key={j} ciudad={lo.city} pais={lo.country}/>
-                })} */}
-
-            {/* {
-                lista.length === 0 ? <p>No locations found.</p> :
-
-                  lista.map((lo, j) => {
-                    return <Locals key={j} ciudad={lo.city} pais={lo.country} rating={lo.rating} />
-                  })
-
-              } */}
-
           </div>
 
           <div className={CLASSGUEST}>
@@ -304,12 +266,14 @@ function App() {
 
         <section id="cards">
           {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
-          {(lista == "" ? data: lista).map((el, i) => {
+
+          {/* {console.log(lista)} */}
+
+          {((lista.length == 0) ? data : lista).map((el, i) => {
             return <Card key={i} superH={el.superHost} photo={el.photo} title={el.title} type={el.type} beds={el.beds} rating={el.rating} maxGuests={el.maxGuests} />
           })}
         </section>
       </div>
-
     </form>
   );
 }

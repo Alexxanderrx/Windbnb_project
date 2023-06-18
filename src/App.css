@@ -8,7 +8,7 @@ body {
 }
 
 #form_fondo {
-    height: 200em;
+    height: 150em;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -128,7 +128,9 @@ body {
     /* background-color: aqua; */
     width: 90%;
     height: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+    
     display: flex;
     flex-wrap: wrap;
 }
@@ -392,7 +394,9 @@ body {
         height: 30%;
         width: 100%;
     }
-
+    #form_fondo {
+        height: 330em;
+    }
     #cards {
         justify-content: center;
         width: 85%;
