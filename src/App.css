@@ -304,22 +304,24 @@ body {
     clip-path: inset(0 0 100% 0);
 }
 
-/* #locales_00::-webkit-scrollbar {
-    width: 8px;   
+.locales_01{
+    display: flex;
+    /* border: 1px solid black; */
+    font-size: 12px;
+    align-items: center;
+    height: 20%;
+    padding: 3%;
+    user-select: none;
+    /* margin-bottom: 10%; */
 }
-#locales_00::-webkit-scrollbar-thumb {
-    background-color: rgb(235, 69, 69);
-    border-radius: 4px;
-    border: 1px solid transparent;
+.locales_01:hover{
+    background-color: rgb(243, 243, 243);
 }
-#locales_00::-webkit-scrollbar-thumb:hover {
-    background: rgb(225, 120, 120);
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+
+.loc{
+    padding-left: 2%;
+
 }
-#locales_00::-webkit-scrollbar-track {
-    background: #e1e1e1;
-    border-radius: 4px;
-} */
 
 .guest_box {
     display: flex;

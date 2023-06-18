@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./card/Card";
-// import Locals from "./locals/Locals";
-// import Addlocal from "./AddLocal";
 
 function App() {
   // La variable data es la que va a almacenar los datos de "stays.json" y setData nos ayudará a guardar esos datos en esa variable. Es necesario que inicialicemos esa variable como un array vacío para evitar errores.
